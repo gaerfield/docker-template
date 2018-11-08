@@ -1,6 +1,9 @@
 version: '2'
 services:
   test:
+    build:
+      context: https://github.com/gaerfield/docker-template.git
     image: test
     volumes:
       - ./bootstraps:/docker-entrypoint-initdb.d
+
