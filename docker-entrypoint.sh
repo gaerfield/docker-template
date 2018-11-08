@@ -4,17 +4,16 @@
 set -euo pipefail
 shopt -s nullglob
 
-function log_info {
+log_info() {
   echo -e $(date '+%Y-%m-%d %T')"\e[1;32m $@\e[0m"
 }
 
-function log_error {
+log_error() {
   echo -e >&2 $(date +"%Y-%m-%d %T")"\e[1;31m $@\e[0m"
 }
 
 process_init_file() {
 	local f="$1"; shift
-	local mysql=( "$@" )
 
 	case "$f" in
 		*.sh)     log_info "$0: running $f"; . "$f" ;;
